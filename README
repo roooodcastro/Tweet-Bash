@@ -1,0 +1,18 @@
+Tweerminal 0.1.0
+
+This application was made for those who want an unexpected, new place to use Twitter, or those who prefer to edit an image on terminal rather than opening a visual interface for that :)
+
+Don't expect much from this, it's just a basic app that lets you tweet, view your timeline, mentions (TODO), find your friends and some other basic tasks to be implemented on near future. I'm still figuring out what I want it to look like when ready, and what I want it to do.
+I'm using a Python API (Tweepy) to handle all Twitter requests, so basically, all the hard coding is from Tweepy.
+
+Please try it and send any suggestions to my gmail, twitter account or pm me here.
+
+TODO list:
+
+Add mentions support
+Add follow/unfollow support
+Add favorite/unfavorite tweet support
+Improve method to display tweet and general app colors (improve "design")
+Refactor code
+Add error handling for everything (Application must NEVER close unless user tells it to do so)
+Add support for other plattaforms
