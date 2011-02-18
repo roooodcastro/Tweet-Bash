@@ -1,0 +1,24 @@
+0.1.1
+	Added Tweepy API dependency, first working version.
+	Updated application name from Tweerminal to Tweet Bash
+	
+	Features:
+		+ setup.py to install both Tweepy and Tweet Bash
+		+ MIT license
+		+ Changelog
+		+ Improved README
+		
+	Bugfixes:
+		Included Tweepy API dependency on setup
+
+0.1.0
+	First version.
+	
+	Features:
+		+ Multi user
+		+ Login and logout
+		+ Static timeline showing 20 latest tweets
+		+ Static show user, showing basic info and 20 latest tweets of that user
+		
+	Bugs:
+		Application closes when any error happen

@@ -4,7 +4,7 @@ import colors
 
 CONSUMER_KEY = '9qKm6RmzrSnTJH5AG09g'
 CONSUMER_SECRET = 'o7sPZgmVy7zxgwWMDqRstKn1Sp8UJX2dsJHfa6Mm7M'
-app_name = 'Tweet Terminal'
+app_name = 'Tweet Bash'
 
 def split_tweet(tweet):
 	words = tweet.split(" ")
