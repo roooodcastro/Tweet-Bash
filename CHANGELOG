@@ -1,3 +1,13 @@
+0.2.0
+	Added password encryptation, editting user settings and some minor improvements.
+	
+	Features:
+		+ Password encryptation
+		+ Edit user name and password
+
+	Bugfixes:
+		Replaced \n characters from timeline tweets with space, that was causing tweets to display broken.
+		
 0.1.1
 	Added Tweepy API dependency, first working version.
 	Updated application name from Tweerminal to Tweet Bash

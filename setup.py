@@ -7,7 +7,7 @@ import utils
 print utils.colorize("Starting installation of Tweet Bash...", "CYAN")
 
 setup(name="tweet-bash",
-      version="0.1.1",
+      version=utils.app_version,
       description="Twitter app for Ubuntu's bash terminal",
       license="MIT",
       install_requires="tweepy >=1.7",

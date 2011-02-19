@@ -4,7 +4,6 @@ import tweepy
 import os
 import colors
 import utils
-import auth
 import print_text
 from datetime import datetime
 from time import strftime
@@ -13,7 +12,7 @@ from auth import Auth
 class Twitter:
 
 	logged_in = False
-	user = None
+	current_user = None
 	display_name = ">"
 	api = None
 	auth = tweepy.OAuthHandler(utils.CONSUMER_KEY, utils.CONSUMER_SECRET)
@@ -85,18 +84,18 @@ class Twitter:
 				
 	def complete_login(self):
 		self.logged_in = True
-		self.auth.set_access_token(self.user.key, self.user.secret)
+		self.auth.set_access_token(self.current_user.key, self.current_user.secret)
 		self.api = tweepy.API(self.auth)
-		self.display_name = self.user.name + " "
+		self.display_name = self.current_user.name + " "
 		os.system('reset')
-		print_text.header_user(self.user.name)
+		print_text.header_user(self.current_user.name)
 		print utils.colorize("You have successfully logged in!", "GREEN")
 		
 	def try_login(self, login_string):
 		params = login_string.split(" ")
-		if len(params) == 3:
-			self.user = self.user_auth.login(params)
-			if self.user:
+		if len(params) == 2:
+			self.current_user = self.user_auth.login(params[1])
+			if self.current_user:
 				self.complete_login()
 		elif params[0] == 'login':
 			print utils.colorize('Command syntax incorrect. Please refer to "help" to see the correct syntax.', "B_RED")
@@ -104,9 +103,9 @@ class Twitter:
 			print utils.colorize('The command "' + login_string + '" was not recognized.', "B_RED")
 
 	def logout(self):
-		print utils.colorize('Logging out of ' + self.user.name + '. You can log in to a diferent account now.', "YELLOW")
+		print utils.colorize('Logging out of ' + self.current_user.name + '. You can log in to a diferent account now.', "YELLOW")
 		self.logged_in = False
-		self.user = None
+		self.current_user = None
 		self.display_name = ">"
 		self.api = None
 		self.auth = tweepy.OAuthHandler(utils.CONSUMER_KEY, utils.CONSUMER_SECRET)
@@ -129,6 +128,13 @@ class Twitter:
 						self.get_timeline()
 					elif user_input == 'logout':
 						self.logout()
+					elif user_input == 'edit name':
+						new_name = self.user_auth.edit_user_name(self.current_user)
+						if len(new_name) > 0:
+							self.current_user.name = new_name
+							self.display_name = new_name + " "
+					elif user_input == 'edit password':
+						self.user_auth.edit_password(self.current_user)
 					elif 'user' in user_input:
 						self.get_user(user_input)
 					else:
@@ -151,7 +157,4 @@ class Twitter:
 		print_text.header()
 		self.parse_commands()
 		
-	def __main__(self):
-		Twitter().__init__
-
 twitter = Twitter()
