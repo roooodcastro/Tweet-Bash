@@ -28,7 +28,7 @@ def help_guest():
 	print "\nPlease send any suggestions or bug reports to castro.digao@gmail.com or @rod_igo. Help me make this app better!" + colors.get_color("NORMAL")
 	
 def header():
-	print utils.colorize('Welcome to ' + utils.app_name + ' ' + utils.app_version'.\nTo get the list of available commands, type "help".', "GREEN")
+	print utils.colorize('Welcome to ' + utils.app_name + ' ' + utils.app_version + '.\nTo get the list of available commands, type "help".', "GREEN")
 	print utils.colorize('Before continuing, you must log in with "login" or create a new account with "create".', "GREEN")
 
 def header_user(username):
