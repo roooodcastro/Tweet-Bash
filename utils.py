@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import colors
+import bash_utils
 
 CONSUMER_KEY = '9qKm6RmzrSnTJH5AG09g'
 CONSUMER_SECRET = 'o7sPZgmVy7zxgwWMDqRstKn1Sp8UJX2dsJHfa6Mm7M'
@@ -35,8 +35,10 @@ def split_user_bio(bio):
 	return lines
 
 def add_symbol(line, line_size):
-	line = "| " + line + " "*(line_size - len(line) - 3) + "|"
-	return line
+	return "| " + line + " "*(line_size - len(line) - 3) + "|"
+	
+def add_symbol_end(line, line_size):
+	return line + " "*(line_size - len(line) - 1) + "|"
 	
 def colorize(text, color):
-	return colors.get_color(color) + text + colors.get_color("NORMAL")
+	return bash_utils.get_color(color) + text + bash_utils.get_color("NORMAL")

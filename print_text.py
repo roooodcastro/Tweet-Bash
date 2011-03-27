@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-import colors
+import bash_utils
 import utils
 	
 def help_user():
-	print colors.get_color("CYAN")
+	print bash_utils.get_color("CYAN")
 	print utils.app_name + " is a simple python app that lets you read your timeline and send tweets."
 	print "There are currently 8 commands available:"
 	print " - update: Send a tweet."
@@ -15,17 +15,17 @@ def help_user():
 	print " - edit password: Lets you edit your " + utils.app_name + " password."
 	print " - help: Displays this."
 	print " - exit: Quit this application."
-	print "\nPlease send any suggestions or bug reports to castro.digao@gmail.com or @rod_igo. Help me make this app better!" + colors.get_color("NORMAL")
+	print "\nPlease send any suggestions or bug reports to castro.digao@gmail.com or @rod_igo. Help me make this app better!" + bash_utils.get_color("NORMAL")
 	
 def help_guest():
-	print colors.get_color("CYAN")
+	print bash_utils.get_color("CYAN")
 	print utils.app_name + " is a simple python app that lets you read your timeline and send tweets."
 	print "There are currently 4 commands available for you:"
 	print " - login (username): login to your " + utils.app_name + " acount. You must specify your " + utils.app_name + " user name, not Twitter's."
 	print " - create: Creates a new user. User then specifies a username, password and then go to twitter.com to authorize access to the Twitter account."
 	print " - help: Displays this."
 	print " - exit: Quit this application."
-	print "\nPlease send any suggestions or bug reports to castro.digao@gmail.com or @rod_igo. Help me make this app better!" + colors.get_color("NORMAL")
+	print "\nPlease send any suggestions or bug reports to castro.digao@gmail.com or @rod_igo. Help me make this app better!" + bash_utils.get_color("NORMAL")
 	
 def header():
 	print utils.colorize('Welcome to ' + utils.app_name + ' ' + utils.app_version + '.\nTo get the list of available commands, type "help".', "GREEN")
