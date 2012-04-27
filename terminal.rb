@@ -48,13 +48,77 @@ module Terminal
 
 	def Terminal::input(prompt = "")
 		print prompt + " "
-		gets.chomp
+		str = ""
+	begin
+	    system("stty raw")
+    	system("stty -echo")
+	    char = 0
+	    esperando1 = false
+	    esperando2 = false
+	    numero = 0
+	    index = 0
+	    while (char != 13) do
+            char = STDIN.getc
+            if esperando1 == false
+                if char == 27
+                    esperando1 = true
+                elsif char == 127 # Backspace
+                    if index > 0
+                        move_cursor :left
+                        print " "
+                        move_cursor :left
+                        numero -= 1
+                        index -= 1
+                    end
+                else
+                    print char.chr
+                    numero += 1
+                    index += 1
+                end
+            else
+                if char == 91
+                    esperando2 = true
+                elsif esperando2 == true
+                    esperando2 = false
+                    if char == 65 # Up
+                        print "up"
+                    elsif char == 66 # Down
+                        print "down"
+                    elsif char == 67 # Right
+                        index += 1
+                        if index <= numero
+                            move_cursor :right
+                        else
+                            index -= 1
+                        end
+                    elsif char == 68 # Left
+                        index -= 1
+                        if index >= 0
+                            move_cursor :left
+                        else
+                            index += 1
+                        end
+                    elsif char == 126 # Delete (TODO)
+                        print ""                        
+                    end
+                    esperando1 = false
+                end
+            end
+            str << char.chr
+	    end
+	ensure
+    	system("stty -raw")
+		system("stty echo")
+    	print "\n"
+	end
+    	return str
 	end
 	
 	def Terminal::input_password(prompt = "")
 		begin
 			system("stty -echo")
 			password = input prompt
+			print "\n"
 		ensure
 			system("stty echo")
 		end
@@ -62,4 +126,4 @@ module Terminal
 	end
 end
 
-Terminal.read_password "Senha:"
+Terminal.input "Teste:"
