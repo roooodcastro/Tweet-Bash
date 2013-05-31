@@ -126,3 +126,8 @@ module Terminal
 		return password
 	end
 end
+<<<<<<< HEAD
+=======
+
+Terminal.input "Teste:"
+>>>>>>> 345a1954cd972b6a0a92ded0db44d5efe439fdb7
