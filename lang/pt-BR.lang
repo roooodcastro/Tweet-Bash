@@ -1,0 +1,29 @@
+[general]
+prompt_name = Nome:
+prompt_password = Senha:
+cancel = (digite '\cancel' para cancelar)
+header = Bem vindo ao %{app_name} %{version}\nPara ver os comandos disponíveis, digite "help"\nAntes de continuar, por favor digite "login" para entrar ou crie uma nova conta digitando "create"
+bye = %{app_name} está sendo fechado. Até logo
+
+[login]
+incorrect = Usuário ou senha incorretos. Por favor tente novamente
+welcome = Bem vindo, %{username}.\nPara ver os comandos disponíveis, digite "help"\nPara carregar sua timeline, use "timeline", e para enviar um tweet, "update"
+
+
+[account]
+retrieving = Gerando URL de autorização do twitter.com, aguarde um momento.....
+name_limits = Nome de usuário deve ser alfanumérico e pode conter os seguintes símbolos:  _ . - + @ $
+ask_name = Escolha um nome de usuário:
+ask_password = Crie uma senha para ser usada na sua nova conta do %{app_name}
+ask_pin = Depois de autorizar, o Twitter fornecerá um número PIN. Digite-o abaixo:
+exists = Nome de usuário já existe, favor escolher um diferente
+saved = Usuário salvo com sucesso!
+go_authorize = Agora acesse a URL fornecida abaixo para autorizar o acesso do %{app_name} à sua conta do Twitter
+
+[help]
+description = %{app_name} é um aplicativo simples escrito em Ruby que permite acesso ao Twitter direto do terminal\nExistem %{count} comandos disponíveis para você:
+login = - login {nome de usuário}: Entra na sua conta do %{app_name}. Você deve especificar o seu nome de usuário do %{app_name} e não o do Twitter\n- create: Cria um novo usuário, que será redirecionado ao Twitter para autorizar o acesso desta aplicação.
+edit = - edit name: Altera seu nome de usuário do %{app_name}\n- edit password: Altera sua senha do %{app_name}\n- logout: Sai da sua conta, permitindo você entrar com outra conta
+update = - update: Envie um tweet\n- timeline: Mostra os últimos 20 tweets de sua timeline\n- user (username): Exibe informações sobre um usuário, e exibe seus últimos 20 tweets
+help_exit = - help: Exibe a ajuda (isto)\n- exit: Fecha o aplicativo
+suggestions = Por favor envie suas sugestões, reclamações ou algum bug que você encontrar para castro.digao@gmail.com ou @rod_igo\nMe ajude a tornar este aplicativo melhor!

@@ -1,22 +1,24 @@
+require "terminal"
+
 module Utils
 
-	def Utils::CONSUMER_KEY
+	def consumer_key
 		"9qKm6RmzrSnTJH5AG09g"
 	end
 	
-	def Utils::CONSUMER_SECRET
+	def consumer_secret
 		"o7sPZgmVy7zxgwWMDqRstKn1Sp8UJX2dsJHfa6Mm7M"
 	end
 	
-	def Utils::APP_NAME
+	def app_name
 		"Tweet Bash"
 	end
 	
-	def Utils::APP_VERSION
+	def app_version
 		"0.3.0"
 	end	
 
-	def Utils::split_tweet(tweet)
+	def split_tweet(tweet)
 		tweet = tweet.gsub("\n", " ")
 		words = tweet.split(" ")
 		lines = []
@@ -33,7 +35,7 @@ module Utils
 		return lines
 	end
 	
-	def Utils::split_user_bio(bio)	
+	def split_user_bio(bio)	
 		words = bio.gsub("\n", " ")
 		lines = []
 		lines << ""
@@ -49,10 +51,11 @@ module Utils
 		return lines
 	end
 
-	def Utils::add_symbol(line, line_size)
+	def add_symbol(line, line_size)
 		("| " + line + " "*(line_size - line.size - 3) + "|")
 	end
+	
+	def get_language
+		$language = "pt-BR"
+	end
 end
-	puts Utils.split_tweet("Hello world")
-	puts Utils.split_user_bio("Hello world")
-	puts Utils.CONSUMER_KEY
